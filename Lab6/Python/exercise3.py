@@ -128,6 +128,7 @@ def exercise3():
         None
     """
 
+    '''
     # Create system
     sim = system_init()
 
@@ -159,6 +160,206 @@ def exercise3():
     plt.xlabel('Position [rad]')
     plt.ylabel('Velocity [rad.s]')
     plt.grid()
+    '''
+   
+    
+    
+    
+    
+    
+    ######################################################
+    #  initialization
+    
+    ########## PENDULUM ##########
+    P_params = PendulumParameters()  
+    P_params.L = 1.0  
+    P_params.m = 0.25  
+    pendulum = PendulumSystem(P_params)  
+
+    pylog.info('Pendulum model initialized \n {}'.format(
+        pendulum.parameters.showParameters()))
+
+    ########## MUSCLES ##########
+    m1_param = MuscleParameters() 
+    m1_param.f_max = 200. 
+    m1_param.l_opt = 0.4
+    m1_param.l_slack = 0.45
+    m2_param = MuscleParameters()  
+    m2_param.f_max = 200.  
+    m2_param.l_opt = 0.4
+    m2_param.l_slack = 0.45
+    m1 = Muscle('m1', m1_param)  
+    m2 = Muscle('m2', m2_param)  
+    muscles = MuscleSystem(m1, m2)
+    
+    pylog.info('Muscle system initialized \n {} \n {}'.format(
+        m1.parameters.showParameters(),
+        m2.parameters.showParameters()))
+    
+    ######## Define Muscle Attachment points
+    m1_origin = np.asarray([0.0, 0.9])  
+    m1_insertion = np.asarray([0.0, 0.15])  
+    m2_origin = np.asarray([0.0, 0.8])  
+    m2_insertion = np.asarray([0.0, -0.3]) 
+    muscles.attach(np.asarray([m1_origin, m1_insertion]),
+                   np.asarray([m2_origin, m2_insertion]))
+
+    
+ 
+    ##### Time #####
+    t_max = 2.5 
+    time = np.arange(0., t_max, 0.001)  
+
+ 
+
+
+ 
+    
+    
+    
+    
+    ###########################################################
+    ###########################################################
+    ###########################################################
+    ###########################################################
+    ###########################################################
+    ### code for 3a
+    pylog.info("3a")
+ 
+    
+    d = 1.
+    tau = np.array([0.02, 0.02, 0.1, 0.1])
+    b = np.array([3., 3., -3., -3.])
+    w=np.zeros((4,4))
+    w[0,1]=w[0,3]=w[1,0]=w[1,2]=-5
+    w[0,2]=w[1,3]=5
+    w[2,0]=w[3,1]=-5
+    w=w.T
+    
+    N_params = NetworkParameters()
+    N_params.D = d
+    N_params.tau = tau
+    N_params.b = b
+    N_params.w=w
+    neural_network = NeuralSystem(N_params)
+    
+    sys = System()  
+    sys.add_pendulum_system(pendulum)  
+    sys.add_muscle_system(muscles)  
+    sys.add_neural_system(neural_network)
+    
+    x0_P = np.asarray([np.pi/2, 0.])
+    l_ce_0 = sys.muscle_sys.initialize_muscle_length(np.pi/2)
+    x0_M = np.asarray([0.05, l_ce_0[0], 0.05, l_ce_0[1]])
+    x0_N = np.asarray([-0.5, 1, 0.5, 1])  
+    x0 = np.concatenate((x0_P, x0_M, x0_N))
+   
+    sim = SystemSimulation(sys)  
+    sim.initalize_system(x0, time) 
+    sim.simulate()
+    res = sim.results()
+    
+    positions=res[:,1]
+    vels=res[:,2]
+    
+    plt.figure('3a. Activation with time ')
+    plt.title('Activation with time')
+    plt.plot(res[:, 0], res[:, 3], label="Activation 1")
+    plt.plot(res[:, 0], res[:, 5], label="Activation 2")
+    plt.xlabel('Time [s]')
+    plt.ylabel('Activation')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+    # Plotting the results
+    plt.figure('3a. Pendulum state with time')
+    plt.title('Pendulum state with time')
+    plt.plot(res[:, 0], positions)
+    plt.xlabel('Time [s]')
+    plt.ylabel('Position [rad]')
+    plt.grid()
+    plt.show()
+
+    # Plotting the results
+    plt.figure('3a. Pendulum phase plot')
+    plt.title('Pendulum phase plot')
+    plt.plot(positions, vels)
+    plt.xlabel('Position [rad]')
+    plt.ylabel('Velocity [rad/s]')
+    plt.grid()
+    plt.show()
+    
+    
+    
+    ###########################################################
+    ###########################################################
+    ###########################################################
+    ###########################################################
+    ###########################################################
+    ### code for 3b
+    pylog.info("3b")
+    
+    all_positions=[]
+    all_vels=[]
+    all_time=[]
+    all_act_1=[]
+    all_act_2=[]
+    
+    external_drives=np.array([0,0.2,0.5,1.,2.,5.])
+    for temp_drive in external_drives:
+        sim = SystemSimulation(sys)  
+        sim.initalize_system(x0, time) 
+        sim.add_external_inputs_to_network(np.ones((len(sim.time), 4))*temp_drive)
+        sim.simulate()
+        res = sim.results()
+        
+        
+        all_time=all_time+[res[:,0]]
+        all_positions=all_positions+[res[:,1]]
+        all_vels=all_vels+[res[:,2]]
+        all_act_1=all_act_1+[res[:,3]]
+        all_act_2=all_act_2+[res[:,5]]
+        
+    plt.figure('3a. Activation with time by different external drives')
+    plt.title('Activation with time by different external drives')
+    for i in range(len(external_drives)):
+        plt.plot(all_time[i], all_act_1[i])
+        plt.plot(all_time[i], all_act_2[i])
+    plt.xlabel('Time [s]')
+    plt.ylabel('Activation')
+    temp_legends=['external drive: '+ format((temp_drive),'.2f') for temp_drive in external_drives]
+    plt.legend(temp_legends)
+    plt.grid()
+    plt.show()
+    
+        
+    plt.figure('3b. Pendulum state with time by different external drives')
+    plt.title('Pendulum state with time by different external drives')
+    for i in range(len(external_drives)):
+        plt.plot(all_time[i], all_positions[i])
+    plt.xlabel('Time [s]')
+    plt.ylabel('Position [rad]')
+    temp_legends=['external drive: '+ format((temp_drive),'.2f') for temp_drive in external_drives]
+    plt.legend(temp_legends)
+    plt.grid()
+    plt.show()
+    
+    plt.figure('3a. Pendulum phase plot by different external drives')
+    plt.title('Pendulum phase plot by different external drives')
+    for i in range(len(external_drives)):
+        plt.plot(all_positions[i], all_vels[i])
+    plt.xlabel('Position [rad]')
+    plt.ylabel('Velocity [rad/s]')
+    temp_legends=['external drive: '+ format((temp_drive),'.2f') for temp_drive in external_drives]
+    plt.legend(temp_legends)
+    plt.grid()
+    plt.show()
+    
+    
+      
+    
+    
 
     # To animate the model, use the SystemAnimation class
     # Pass the res(states) and systems you wish to animate
