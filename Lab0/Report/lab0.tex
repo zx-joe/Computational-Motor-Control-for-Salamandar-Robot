@@ -1,0 +1,137 @@
+\documentclass{cmc}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=red,
+}
+\urlstyle{same}
+
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+\tableofcontents
+\lhead{\textit{\textbf{Computational Motor Control, Spring 2020} \\
+    Python exercise, Lab 0, NOT GRADED}} \rhead{Student \\ Names}
+
+\newpage
+\section*{Student names: \ldots (please update)}
+
+\textit{Instructions: This document contains the instructions to
+  install and get familiarized with Python programming.  \textbf{This
+    lab is not graded}. This file does not need to be submitted and is
+  provided for your own benefit.}
+
+\newpage
+\section{Introduction to Python}
+
+\subsection{Basic Python Concepts}
+
+In this section we will quickly go over the list of topics given
+below.  You can open and run the individual files marked with the same
+topic name using Spyder.  We suggest you to go through each section
+individually and spend time exploring each of the concepts by making
+changes to the code and observing the outputs.
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+\item HelloWorld
+\item Imports
+\item Data Types
+\item Math
+\item Conditional Statements
+\item Data Containers : Lists, Tuples and Dictionaries
+\item Functions
+\item Loops
+\item Numpy
+\item Matplotlib
+\item Classes
+\end{enumerate}
+
+While you are executing each of the small exercises, try to learn how
+to use different features of Spyder. Especially the help and debugging
+feature.  When you are unsure of any command, use the help service
+either the one built into Python or Spyder.  After familiarizing
+yourself with the above concepts try to solve the following python
+exercises.
+
+\newpage
+\subsection{Exercise 1}
+\textbf{Check if the following matrix M is a magic square or not?}
+
+\textit{\textbf{Hint : } A magic square is a square matrix which
+  contains distinct integers and whose sum along any of its individual
+  rows or columns or diagonal is a constant.  The constant is called
+  as a magic constant or magic sum or magic square}
+
+\begin{equation*}
+  \label{eq:1}
+  M =
+  \begin{bmatrix}
+    16 & 3  & 2  & 13 \\
+    5  & 10 & 11 & 8  \\
+    9  & 6  & 7  & 12 \\
+    4 & 15 & 14 & 1
+  \end{bmatrix}
+\end{equation*}
+
+\textit{\textbf{Further Step : } Try if you can generalize your script
+  to have a function to check any arbitrary matrix if it is a magic
+  square or not.  Import the function as a module in another script
+  and use it to check the matrix M}
+
+\subsection{Exercise 2 - Plotting a function}
+
+\textit{Plot the following function $f(x)$ over an interval [0, 2]
+  with proper labels and title}
+
+\begin{equation*}
+  \label{eq:3}
+  f(x) = sin(x - 2)e^{-x^2}
+\end{equation*}
+
+\newpage
+\section{References and additional useful links}
+\label{sec:references}
+
+\subsection{Python}
+\label{sec:python_ref}
+\begin{itemize}
+\item
+  \href{http://mathesaurus.sourceforge.net/matlab-numpy.html}{NumPy
+    for MATLAB users}
+\item \href{https://python.swaroopch.com}{A byte of python}
+\item \href{http://nbviewer.jupyter.org/gist/rpmuller/5920182}{A Crash
+    Course in Python for Scientists}
+\item The official \href{https://docs.python.org/2/}{Python
+    documentation} should be your first stop when looking for
+  information
+\item \href{http://numpy.scipy.org/}{numpy}
+\item \href{http://www.scipy.org/}{scipy}
+\item \href{http://matplotlib.sourceforge.net/}{matplotlib}
+\end{itemize}
+
+\subsection{Git}
+\label{sec:git_ref}
+\begin{itemize}
+\item \href{https://try.github.io/levels/1/challenges/1}{Try Git!}
+\item
+  \href{https://marklodato.github.io/visual-git-guide/index-en.html}{A
+    Visual Git Reference}
+\end{itemize}
+
+\subsection{Spyder}
+\label{sec:spyder_ref}
+\begin{itemize}
+\item
+  \href{http://www.southampton.ac.uk/~fangohr/blog/spyder-the-python-ide.html#first-steps-with-spyder}{Getting started with Spyder}
+\end{itemize}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%  LocalWords:  iTerm

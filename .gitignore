@@ -1,0 +1,22 @@
+#: Latex
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+auto/
+
+#: Python
+*.pyc
+*.npy
+__pychache__
+
+#: Temp
+*.*~
+.DS_STORE
+.DS_Store
+._.DS_Store
+
+#: Docs
+docs/build
+make.bat

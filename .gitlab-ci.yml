@@ -1,0 +1,27 @@
+image: python:3.7-alpine
+
+pages:
+  script:
+  - echo "http://dl-8.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+  - echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories
+  - apk update
+  - apk --no-cache --update-cache add gcc
+  - apk --no-cache --update-cache add gfortran
+  - apk --no-cache --update-cache add python3-dev
+  - apk --no-cache --update-cache add py3-pip
+  - apk --no-cache --update-cache add build-base
+  - apk --no-cache --update-cache add wget
+  - apk --no-cache --update-cache add freetype-dev
+  - apk --no-cache --update-cache add libpng-dev
+  - ln -s /usr/include/locale.h /usr/include/xlocale.h
+  - pip install -U sphinx numpydoc matplotlib sphinx_rtd_theme
+  - apk --no-cache add make
+  - cd docs
+  - make html
+  - cd ..
+  - mv docs/build/html/ public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

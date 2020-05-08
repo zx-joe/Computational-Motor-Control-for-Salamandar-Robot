@@ -1,0 +1,37 @@
+digraph G {
+    graph[rankdir=LR, center=true]
+    node [
+          color="black",
+          fontsize=20,
+          shape=box
+          ]
+
+    "test_sr2.py"->"salamandra_robotica.sdf"
+    "lab7.py"->"parse_args.py"
+    "lab7.py"->"run_network.py"
+    "run_network.py"->"parse_args.py"
+    "run_network.py"->"save_figures.py"
+    "run_network.py"->"network.py"
+    "run_network.py"->"simulation_parameters.py"
+    "network.py"->"robot_parameters.py"
+
+    {
+        rank = same;
+        "lab7.py";
+        "test_sr2.py";
+    }
+
+    {
+        rank = same;
+        "parse_args.py";
+        "run_network.py";
+    }
+
+    {
+        rank = same;
+        "network.py";
+        "simulation_parameters.py";
+    }
+
+    color=black;
+}
