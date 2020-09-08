@@ -20,7 +20,7 @@ def exercise_8d1(timestep):
                             spawn_orientation=[0, 0, 0],  # Orientation in Euler angles [rad]
                             drive=3.,  # An example of parameter part of the grid search
                             amplitudes=[0.3, 0.3], 
-                            turn=1,  
+                            turn=0.5,  
                             pattern='swim',
                             phase_lag=0.2*np.pi,
                             #amplitude=1.,
@@ -34,17 +34,17 @@ def exercise_8d1(timestep):
         sim_parameters=parameter_set,  # Simulation parameters, see above
         arena='water',  # Can also be 'ground' or 'amphibious'
         fast=True,  # For fast mode (not real-time)
-        #record=True,
+        record=True,
     )
     data.to_file(filename.format('h5'))  
   
-    '''
+    
     sim.interface.video.save(
-                filename='8d_turning_right.mp4',
+                filename='8d_turning_right_2.mp4',
                 iteration=sim.iteration,
                 writer='ffmpeg',
             )
-    '''
+    
     
     
     data=AnimatData.from_file(filename.format('h5'))

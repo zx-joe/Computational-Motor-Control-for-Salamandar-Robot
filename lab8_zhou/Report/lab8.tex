@@ -1,12 +1,14 @@
 \documentclass{cmc}
 \usepackage{makecell}
+
+
 \begin{document}
 
 \pagestyle{fancy}
 \lhead{\textit{\textbf{Computational Motor Control, Spring 2020} \\
-    Final project, Lab 8, GRADED}} \rhead{Student \\ Names}
+    Final project, Lab 8, GRADED}} \rhead{Zhou Xiao \\ Lu Xiaolong \\ Joseph Al Aaraj}
 
-\section*{Student names: \ldots (please update)}
+\section*{Student names: Zhou Xiao, Lu Xiaolong, Joseph Al Aaraj}
 
 \textit{Instructions: Update this file (or recreate a similar one, e.g.\ in
   Word) to prepare your answers to the questions. Feel free to add text,
@@ -227,6 +229,101 @@ order to simplify the implementation in this project.
   \label{fig:science_oscillator_properties}
 \end{figure}
 
+% 在这儿写
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8a_d05_spine.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d05_limb.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d05_amp.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d05_freq.png}
+\caption{Oscillation properties of walking with drive=0.5 in our simulation}
+\label{a0}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8a_d15_spine.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d15_limb.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d15_amp.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d15_freq.png}
+\caption{Oscillation properties of swimming with drive=1.5 in our simulation}
+\label{a1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8a_d25_spine.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d25_limb.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d25_amp.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d25_freq.png}
+\caption{Oscillation properties of swimming with drive=2.5 in our simulation}
+\label{a2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8a_d35_spine.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d35_limb.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d35_amp.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d35_freq.png}
+\caption{Oscillation properties of walking with drive=3.5 in our simulation}
+\label{a3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8a_d45_spine.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d45_limb.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d45_amp.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d45_freq.png}
+\caption{Oscillation properties of walking with drive=4.5 in our simulation}
+\label{a4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8a_d55_spine.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d55_limb.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d55_amp.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_d55_freq.png}
+\caption{Oscillation properties of walking with drive=5.5 in our simulation}
+\label{a5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8a_ref.png}
+\caption{Highlight of oscillation properties with drive=0.5, 1.5 , 2.5 , 3.5 , 4.5, 5.5 in complementary material}
+\label{a_ref}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8a_spine.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_limb.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_amp.png}
+\includegraphics[height=0.3\columnwidth]{figures/8a_freq.png}
+\caption{Oscillation properties when drive increases from 0 to 6 linearly within 30 seconds.}
+\label{a_f}
+\end{figure}
+
+Here we visualize the oscillator performance with different constant values (Figure 5-10) for steady observation, and changing drive (Figure 12) similar to reference plot.
+
+Picture 5-10 show the transition from walking to swimming with different drives. When walking, axial produces standing waves. With the same descending signal, the phase of the output of the four body joints in trunk is the same and that in the tail is also the same but the difference between the the phase of body joint in trunk and that in tail is 180 degrees (Figure 3A). When swimming, axial produces traveling waves, body joints remain constant phase lag along the spinal cord and the relative phase lag between head and tail is usually 100 percentage (Figure 3A).
+
+Figure 4 (left) shows that the limb oscillators oscillate with lower frequencies than body oscillators at the same level of tonic drive d and saturate at with lower drive. While the limb oscillators converge to a higher amplitude than body oscillators at the same level descending drive signal. In our plots all oscillators are driven by the same drive d. Figure 4 (right) gives us the information that the movement of body and limb oscillators (uncoupled) when the drive increases with time. When the drive is lower than the threshold (1), there are no oscillations for both limb and body. When the drive is the larger than the thresholds, slow oscillations can be seen. When the drive d increases from 1.5 to 2.5 (Figure 6-7), the amplitude of both body and limb joints increase and the oscillations of both joints eventually converge to a stable state. We can see from the lower right corner of each graph that body and limb joints frequencies are also increasing but the former is always larger. 
+
+Further increasing the drive d to 3.5 and it's in a swimming pattern, it surpasses the upper threshold of limb oscillators and they are deactivated and we can see the 0 frequencies and amplitudes. While the amplitude and frequency of the body joints continue to increase, and the phase difference all body joints at the same time also increase with respect to the previous 
+case. If we further increase the drive to 4.5, it maintains the same trend of variation as in the case of drive d is 3.5.
+
+When the drive d is lower than the lowest threshold of of the body joints (same of the threshold of the limb joints), the body joints and limb joints do not activate(Figure 5). When the drive d is greater than the highest threshold of of the body joints (and, of course,d has already surpassed the highest threshold of the limb joints now), the body joints and limb joints are all at still(Figure 10).
+
+All the above cases of different drive d are marked in Figure 11. And a smooth continuous variation trend of the amplitude and frequency of both body and limb joints with respect to the variation of drive d are shown in Figure 12. Please note that the body and limb oscillators are decoupled. Just by changing the magnitude of the descending signal d (one dimensional signal ), we realized the modulation of the amplitude and frequency of all limb and body joints, that is, the modulation of the gaits, speed etc (very large dimension).
+
+%In the salamandra-robotica robot the legs are simplified to have just one degree of freedom, unlike a real salamanders legs with multiple of degrees of freedom. For the robot the rotating legs are  enough to emulate the swing and stance phase of a gait cycle in a real animal.
+
 
 \subsection*{8b. Effects of amplitude and phase lags on swimming
   performance}
@@ -268,6 +365,33 @@ salamander?
 \end{itemize}
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8b_v1.png}
+\includegraphics[height=0.3\columnwidth]{figures/8b_v2.png}
+\includegraphics[height=0.3\columnwidth]{figures/8b_e1.png}
+\includegraphics[height=0.3\columnwidth]{figures/8b_e2.png}
+\caption{Grid search of phase lag and oscillation amplitude, and their influence on speed (up) and energy (down)}
+\label{b}
+\end{figure}
+
+In swimming state, the limb of the salamander is deactivated, meaning that it will not affect the whole body. The amplitude and the phase lag are referred to the body oscillators (axial).
+
+Figure 13 is the result of grid search. If we look at the diagram in the upper left corner of the Figure 13, we can find that the smaller the phase lag, the greater the velocity in the case of the same amplitude. When the phase lag is constant, the velocity increases with the increase of the amplitude. However,the velocity achieves the maximum when the amplitude reaches 0.5, and it will decrease with the increase of the amplitude after this point.
+
+In the analysis,  we estimate the energy by integrating the product of instantaneous joint velocities and torques.
+In the lower left corner of Figure 13 one can observe how the energy changes with the variation of phase lag and amplitude. The smaller the phase lag, the greater the energy under the same amplitude level. In addition, the larger the amplitude, the greater the energy when the same phase lag appears.
+
+Generally speaking, salamander tends to move in a less energetic manner, where the speed is not necessarily the largest. In our phase lag range, increasing the phase lag can make the energy smaller. When it meets a predator, it moves in the fastest way.  There are three lattice corresponding to the parameters leading to the fastest velocity, but the energy corresponding to the parameters of the three lattice is different. This paved a way for us to reduce the energy at the same speed. We can choose the parameter corresponding to the smallest energy which can still keep a good speed.
+
+
+Traveling wave has constant phase lag along the spinal cord and the relative phase lag between head and tail is usually 100 percent for any frequency, meaning that the body always makes one complete "S" shaped undulation and the wavelength is constant one body length. While the time needed to complete the entire cycle (traveling wave propagates from the head to tail or from the tail to head) will increase with the increase of the phase lags.
+In faster swimming, bursts have higher amplitude, meaning that the muscles will contract more (higher firing rates). In this condition, the bursts are faster, meaning that the bursting frequency is higher. 
+
+
+
+
+
 \subsection*{8c. Amplitude gradient}
 \label{sec:amplitude-gradient}
 
@@ -293,6 +417,27 @@ salamander?
   salamander moves the way it does?
 \end{enumerate}
 
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\columnwidth]{figures/8c_v1.png}
+\includegraphics[height=0.3\columnwidth]{figures/8c_v2.png}
+\includegraphics[height=0.3\columnwidth]{figures/8c_e1.png}
+\includegraphics[height=0.3\columnwidth]{figures/8c_e2.png}
+\caption{Grid search of amplitudes of the first and last oscillator, and their influence on speed (up) and energy (down)}
+\label{c}
+\end{figure}
+
+The results of grid search are shown in Figure 14.
+From the upper left corner of the Figure 14 we can observe that there is a certain head amplitude corresponding to the maximum velocity at each fixed tail amplitude. Before this point, the velocity increases with the increase of head amplitude. But the inverse trend appears after this point. The same phenomenon is observed when we fix the head amplitude and vary tail amplitude. If we connect the points corresponding to the maximum velocity at different amplitudes, we can find that the two amplitude coordinates of the maximum velocity are highly correlated, almost a straight line. The the velocity is symmetrically arranged on both sides of the line. The upper right corner of Figure 14 also shows that the maximum velocity occurs where the surface gradient is 0.
+
+The lower left corner of Figure 14 also shows that the energy increases with the increase of both the amplitude of the head or tail. This paves a way reduce energy by reducing both amplitudes. The upper left corner of the Figure 14 illustrates that the point (parameters of both tail and head amplitudes) of maximum velocity does not necessarily correspond to the point of maximum energy, because the amplitude of tail corresponding to the maximum velocity is relatively small.
+
+
+In the motion of a true salamander, the amplitude of one side of the whole body is increased from head to tail. This makes the head more stable and helps the visual system to observe and track prey as well as navigate. The tail, especially the part without limbs,
+%(new improvement of Robotica samamandera 2), 
+can move with a much larger amplitude because there is no coupling with the limbs. Decreasing the head amplitude and increasing the tail amplitude can increase the speed. While reducing the amplitude of the head with high mass and maintaining the high amplitude of the tail with low mass is beneficial to save energy.
+
+
 
 \subsection*{8d. Turning and backwards swimming}
 \label{sec:turning-backwards}
@@ -305,7 +450,29 @@ salamander?
   trajectories and spine angles.
 \end{enumerate}
 
+\begin{figure}[H]
+\centering
+\begin{tabular}{cc}
+\includegraphics[height=0.3\columnwidth]{figures/8d_turn_traj_2.png} &
+\includegraphics[height=0.3\columnwidth]{figures/8d_back_traj.png} \\
+\textbf{(a)} & \textbf{(c)} \\
+\includegraphics[height=0.3\columnwidth]{figures/8d_turn_spine_2.png} &
+\includegraphics[height=0.3\columnwidth]{figures/8d_back_spine.png} \\
+\textbf{(b)} & \textbf{(d)}
+\end{tabular}
+\caption{Spine angles plots with time along with position coordinates evolution for both turning right and swimming backwards.}
+\label{c}
+\end{figure}
 
+To achieve turning (in our case, for instance, a right turn), one side of the spine should be triggered more than the other side. This can be easily realized through adding a turning parameter $\lambda$ to the amplitude of both sides of joints. The amplitudes of the joints can be modified as $r_{i}\times (1+\lambda)$
+and $r_{i}\times (1-\lambda)$ so that we can set the value of $\lambda$ to have a biased joints amplitudes on 2 sides for a turning motion. In our simulation, we set $\lambda$ to 0.5 so that the spine movements always have a positive amplitude range. 
+The phenomenon can be seen in Figure 15-(b) where the spine joint angles amplitudes are clearly varying in the positive direction only. This offset will cause the turning to the side receiving the larger amplitude variations. 
+
+Changing the intrinsic frequency of some oscillators of axial leads to changes in the phase lags globally.
+In moving forward, the first spine joint nearest to the head of the salamander has a phase lead over the other ones, and every subsequent joint leads the one after it, until the last joint at the tail of the salamander is reached. When a negative phase lag is applied, the first joint to jump into action would be Joint 10, as seen in Figure 15-(d). Then the previous joint is triggered, followed by the one before it, until reaching Joint 1 near the head. This will cause the salamander to start moving backwards. In simpler terms, simply reversing the directions (phase lag) of the joints for moving forward will cause the backward movement. Also, it can be observed through spine movements (d) that the tail joint leads the waves.
+%What is worthy of mentioning is that from joints 7 to 10, the amplitude of the angle does not vary all the way from positive to negative values (unlike joints 1 to 6) but just oscillates in the positive region. This is the case since joint 7 is located at the rear limbs. That is, to achieve backward swimming, the salamander must move its upper body (from head to the rear limbs, i.e. joints 1 to 6) to give enough drive to push itself and swim backwards. Joints 7 to 10 can provide guidance (to move straight) and assistance in the drive backwards. 
+
+To better show our turning and backward moving trend, we also recorded 2 videos and attached them in the folder.
 
 \subsection*{8e. Cancelled}
 
@@ -336,7 +503,35 @@ between the spine and the limb movement for walking.
 Include plots showing how the oscillation radius influences walking speed and
 comment on the results.
 
+\begin{figure}[H]
+\centering
+\begin{tabular}{cc}
+\includegraphics[height=0.3\columnwidth]{figures/8f_phase_3.png} &
+\includegraphics[height=0.3\columnwidth]{figures/8f_amp.png}   \\
+\textbf{(a)} & \textbf{(b)}
+\end{tabular}
+\caption{Variation of walking speeds as a function of changing phase offsets and oscillation amplitudes.}
+\label{c}
+\end{figure}
 
+
+
+During walking, a well-established in-sync coordination between the limbs and the spine is very important in achieving an optimal outcome when it comes to moving faster. Therefore, the element of phase lag introduced between the spine and the limbs becomes an important parameter that can be the difference between walking with maximum speed or maybe not walking at all. Here we set phase lag $0.2\pi$ between neighbour joints. The expected spine movement should conform to Figure \ref{a1} and Figure \ref{a2}.
+%This is especially true for the case of spine joints 1 to 6, as they are the main key players in affecting the limbs directly. Spine joints 7 to 10 mainly affect the tail, a part not needed in walking. As such, spine joints 1 to 6 should exhibit an in-phase behavior among themselves while walking. In other words, the salamander body from head to rear limbs should be bending at the same time in the same manner. This results on no phase lag along the spine joints (1 to 6). Joints 7 to 10 exhibit an out-of-phase behavior with respect to joints 1 to 6.
+
+In swimming, the limbs are no longer needed while the axial part becomes important in propagating the salamander in water. Having the whole body (from head to tail, i.e. all joints 1 to 10) be in oscillation becomes what is important in this process. Therefore, a phase lag between the spine and limb joints is no longer an important parameter. Rather, the phase lag along all the body spine joints themselves becomes crucial in moving while swimming. To move forward in this case, joint 1 must begin oscillating, followed by joint 2 after a very small delay, and so on until the last joint 10 is reached. This translates into having a propagating wave shape exhibited by the salamander body. This propagating wave allows the salamander to gain mobility in water. 
+
+In walking standing wave there is no phase lag in both head part and the tail part of the spine while the head and tail have 2π difference of phase. In this case the phase offset between axial and limb is important. The maximum speed occurs when the body axial bends on the side of which the limbs stench forward (phase of the body). The bending curvature of the axial (amplitude of body oscillators) also influences the speed. While in swimming there is constant phase lags from the head to tail or from the tail to head. The total phase lag for both swimming and walking is 2π.
+
+What follows will be comments on phase offset and oscillation amplitudes effects on the walking speed of the salamander. The velocity here is calculated through the final head joint's distance with respect to overall time.
+
+In Figure 16-(a), generally the same velocity curve behavior is exhibited for a change in the phase offset given a fixed amplitude. An increase in the phase offset between body axial and limb of the salamander aids the walking process and allows for an increase in velocity. This increase reaches its maximum for a phase offset of around 1.4 rad. Afterwards, the velocity decreases with increase in phase. 
+
+In Figure 16-(b), it is expected that for a fixed phase offset, as the amplitude of the body oscillations increases, the walking speed also increases. However, this is true up to a certain limit in amplitude (here around 0.4), after which the velocity decreases. This is expected since very big and out of control oscillations start to interfere with the limb movement, rendering it ineffective. 
+
+
+
+Both figures show the importance of having a wave body motion along with the motion of the limbs to achieve higher speeds while walking. This is all under the condition that the phase offset and the amplitude of the oscillations do not bypass their respective threshold values providing highest efficiency for walking at higher speeds. Passing this threshold will put the body in an out-of-sync state with the limbs and will, in fact, render the walking process less efficient (having much lower speeds). 
 
 \subsection*{8g. Land-to-water transitions}
 
@@ -361,8 +556,34 @@ comment on the results.
 \textbf{Hint:} Use the record options as shown in \corr{exercise\_example.py} to
 easily record videos.
 
+\begin{figure}[H]
+\centering
+\begin{tabular}{cc}
+\includegraphics[height=0.3\columnwidth]{figures/8g_2_limb.png} &
+\includegraphics[height=0.3\columnwidth]{figures/8g_3_limb.png} \\
+\textbf{(a)} & \textbf{(d)} \\
+\includegraphics[height=0.3\columnwidth]{figures/8g_2_spine.png} &
+\includegraphics[height=0.3\columnwidth]{figures/8g_3_spine.png} \\
+\textbf{(b)} & \textbf{(e)} \\
+\includegraphics[height=0.3\columnwidth]{figures/8g_2_x.png} &
+\includegraphics[height=0.3\columnwidth]{figures/8g_3_x.png} \\
+\textbf{(c)} & \textbf{(f)}
+\end{tabular}
+\caption{Plots for limb angles, spine angles, and x-position evolution with time when transitioning from walking to swimming. Same plots are shown also for the transition from swimming to walking.}
+\label{c}
+\end{figure}
 
+Increasing the drive the motion of salamander shifted from walking to swimming and there is no overlap between the drive frequency for swimming and walking. 
+The transition can be realized through changing the drive and other parameters that can directly help change the motion pattern. The condition for transition is based on the x-coordinate of the robot's head joint position. In our simulation, the land-to-water transition is realized by changing drive from 2 to 4 when head x  position is detected less than -2.2, while water-to-land transition is realized by changing drive from 3.5 to 2 when head x position is detected larger than -1.2.
 
+As expected, in Figure 17-(a), the four limb joints behave in an oscillatory manner in while walking forward. Once the limb joints angles get fixed to a constant value, this is when swimming starts, as swimming does not require the motion of the limbs. In Figure 17-(b), the transition is clear at the same time stamp seen in limb angles figure before. These observations all conform to the analysis of swimming and walking pattern in previous sections.
+%The spine joints active in a useful manner while walking are joints 1 to 6 as they allow control of the body section having the limbs. Joints 7 to 10 present a very different, and much larger peak-to-peak amplitude. However, these control the tail, which is a component not needed in walking. Once the transition to swimming occurs, joints 7 to 10 amplitudes decrease as the tail is now used in swimming. 
+
+For a transition from swimming to walking, the exact opposite of what was shown earlier occurs. This can be clearly seen in Figure 17-(d) and Figure 17-(e).  
+
+Besides, our group also tried another method for the transition based on the x-coordinate of different joints. Based on more precise location of water-land border, we can assign different motion parameters to different joints. For example, the robot has half the body on land while the other half in water during water-to-land transition. The front joints will have parameters for walking pattern while the tail joints are assigned with parameters for swimming pattern. However, the transition strategy may lead to turning over due to lack of physical coordination. Therefore, the transition by previous simpler method has a more robust performance, and in the report we only visualize the performance of that method. 
+
+The videos of land-to-water and water-to-land transition have been recorded and attached in the folder.
 % \newpage
 
 \bibliography{lab8}

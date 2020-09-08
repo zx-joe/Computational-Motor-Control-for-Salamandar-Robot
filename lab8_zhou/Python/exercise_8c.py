@@ -27,7 +27,7 @@ def exercise_8c(timestep):
             spawn_orientation=[0, 0, 0],  
             drive=3,  # A drive for swimming pattern
             amplitudes = [temp_r_head,temp_r_tail],
-            phase_lag=-0.2*np.pi,  # or np.zeros(n_joints) for example
+            phase_lag=0.2*np.pi,  # or np.zeros(n_joints) for example
             turn=0,  # Another example
             pattern='swim',
 

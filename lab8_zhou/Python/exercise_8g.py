@@ -171,6 +171,6 @@ def exercise_8g_water_to_land(timestep):
 
 
 if __name__ == '__main__':
-    #exercise_8g_land_to_water(timestep=1e-2)
+    exercise_8g_land_to_water(timestep=1e-2)
     exercise_8g_water_to_land(timestep=1e-2)
 
